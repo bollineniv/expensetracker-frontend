@@ -3,14 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ListExpenseComponent } from './components/list-expense/list-expense.component';
+import { HttpClientModule } from '@angular/common/http'
+import { RouterModule, Routes } from '@angular/router';
+import { AddExpenseComponent } from './components/add-expense/add-expense.component';
 
+const routers: Routes = [
+  {path:'allExpenses', component:ListExpenseComponent},
+  {path:'addExpense', component:AddExpenseComponent},
+  {path:'', redirectTo:'/allExpenses', pathMatch: 'full'}
+]
 @NgModule({
   declarations: [
     AppComponent,
-    ListExpenseComponent
+    ListExpenseComponent,
+    AddExpenseComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot(routers)
   ],
   providers: [],
   bootstrap: [AppComponent]

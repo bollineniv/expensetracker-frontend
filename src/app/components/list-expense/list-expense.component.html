@@ -1,1 +1,4 @@
-<p>list-expense works!</p>
+<div *ngFor = "let expense of allExpenses">
+    <h3>{{expense.expense}}</h3>
+    <p>{{expense.amount | currency: '$'}}</p>
+</div>
