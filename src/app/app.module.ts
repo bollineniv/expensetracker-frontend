@@ -6,10 +6,13 @@ import { ListExpenseComponent } from './components/list-expense/list-expense.com
 import { HttpClientModule } from '@angular/common/http'
 import { RouterModule, Routes } from '@angular/router';
 import { AddExpenseComponent } from './components/add-expense/add-expense.component';
+import { FormsModule } from '@angular/forms';
 
 const routers: Routes = [
   {path:'allExpenses', component:ListExpenseComponent},
   {path:'addExpense', component:AddExpenseComponent},
+  {path:'editExpense/:id', component:AddExpenseComponent},
+  {path:'deleteExpense/:id', redirectTo:'/allExpenses'},
   {path:'', redirectTo:'/allExpenses', pathMatch: 'full'}
 ]
 @NgModule({
@@ -21,6 +24,7 @@ const routers: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routers)
   ],
   providers: [],

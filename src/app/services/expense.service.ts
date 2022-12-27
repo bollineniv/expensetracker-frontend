@@ -21,4 +21,29 @@ export class ExpenseService {
     )
     
   }
+
+  saveExpense(expense: Expense): Observable<Expense>{
+
+    return this.httpClient.post<Expense>(this.getUrl+"/addExpense",expense)
+  }
+
+  getExpense(id: number): Observable<Expense>{
+
+    return this.httpClient.get<Expense>(`${this.getUrl}/getExpense/${id}`).pipe(
+      map(response=>response)
+    )
+    // return this.httpClient.get<Expense>(this.getUrl+"/getExpense/"+id).pipe(
+    //   map(response =>response)
+    // )
+    
+  }
+
+  deleteExpense(id: number): Observable<any>{
+
+    return this.httpClient.delete(`${this.getUrl}/deleteExpense/${id}`,{responseType: 'text'})
+    // return this.httpClient.get<Expense>(this.getUrl+"/getExpense/"+id).pipe(
+    //   map(response =>response)
+    // )
+    
+  }
 }

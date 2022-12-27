@@ -10,13 +10,26 @@ import { ExpenseService } from 'src/app/services/expense.service';
 export class ListExpenseComponent implements OnInit {
 
   allExpenses: Expense[] = []
-  constructor(private expenseService: ExpenseService) { }
+  constructor(private expenseService: ExpenseService,
+              ) { }
 
   ngOnInit(): void {
 
+    this.listExpenses()
+  }
+
+  deleteExpense(id:number){
+    // this.addExpenseComponent.deleteExpense(id);
+    this.expenseService.deleteExpense(id).subscribe(
+      data =>{
+        this.listExpenses()
+      }
+    )
+  }
+
+  listExpenses(){
     this.expenseService.getAllExpense().subscribe(
       data => this.allExpenses = data
     )
   }
-
 }

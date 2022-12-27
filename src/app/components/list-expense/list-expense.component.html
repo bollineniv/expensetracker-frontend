@@ -1,4 +1,8 @@
+<a routerLink="/addExpense">Add Expense</a>
+
 <div *ngFor = "let expense of allExpenses">
     <h3>{{expense.expense}}</h3>
     <p>{{expense.amount | currency: '$'}}</p>
+    <a routerLink="/editExpense/{{expense.id}}">Edit</a>
+    <button (click)="deleteExpense(expense.id)">Delete</button>
 </div>
