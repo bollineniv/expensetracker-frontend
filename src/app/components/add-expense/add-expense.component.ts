@@ -30,7 +30,7 @@ export class AddExpenseComponent implements OnInit {
     this.expenseservice.saveExpense(this.expense).subscribe(
       data=>{
         console.log("response: ",data)
-        // this.router.navigateByUrl("")
+        this.router.navigateByUrl("/allExpenses")
       } 
     )
   }
@@ -43,5 +43,9 @@ export class AddExpenseComponent implements OnInit {
         this.router.navigateByUrl('/allExpenses')
       }
     )
+  }
+
+  cancel(){
+    this.router.navigate(['allExpenses'])
   }
 }

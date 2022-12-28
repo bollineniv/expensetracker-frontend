@@ -1,0 +1,45 @@
+<!-- <p>login works!</p>
+<label for="username">Username</label>
+<input type="text" name="username" class="username" [(ngModel)]="login.username">
+<label>Password</label>
+<input type="password" name="password" class="password" [(ngModel)]="login.password">
+<button type="submit" (click)="authenticateUser(login.username,login.password)">Login</button>
+<button type="reset" >Reset</button>
+<label *ngIf="invalidLogin">{{message}}</label> -->
+
+<header>
+    <nav class = 'navbar navbar-inverse navbar-dark bg-dark'>
+        <div class="container-fluid">
+                <p class="navbar-brand">Expense Tracker</p>
+                <p class="navbar-brand">Login Page</p>
+            <ul class="navbar navbar-nav">
+                <li class="active"><a routerLink="/login">Login</a></li>
+                <li><a routerLink="/register">Register</a></li>
+            </ul>
+            
+        </div>
+        
+    </nav>
+</header>
+<div class="wrapper fadeInDown">
+
+    <div id="logincontent">
+        <form>
+            <input type="text" id="username" class="fadein second" name="username" placeholder="username" [(ngModel)]="login.username">
+            <input type="password" id="password" class="fadein second" name="password" placeholder="password" [(ngModel)]="login.password">
+            <input type="submit" class="fadein fourth" value="Log In" (click)="authenticateUser(login.username,login.password)">
+        </form>
+
+        <!-- username: <input type="text" id="uname" name="uname" [(ngModel)]="username"> -->
+    </div>
+    
+    <!-- <div>
+        password: <input type="password" id="pswd" name="pswd" [(ngModel)]="password">
+    </div>
+
+    <div>
+        <button id="loginbtn" name="login" (click)=handleLogin()>Login</button>
+    </div> -->
+    <div><h2 class="alert alert-warning" *ngIf='invalidLogin' class="errormsg">{{message}}</h2></div>
+     
+</div>
