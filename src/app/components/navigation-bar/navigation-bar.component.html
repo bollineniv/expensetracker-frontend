@@ -1,28 +1,30 @@
-<!-- <header>
+<header>
     <nav class = 'navbar navbar-inverse navbar-dark bg-dark'>
         <div class="container-fluid">
-                <p class="navbar-brand">yVault</p>
+                <p class="navbar-brand">Expense Tracker</p>
                 <div id="barnavinline">
                     <ul class="nav" id="ul_top_hypers">
-                      <li><a *ngIf="authenticateservice.isUserLoggedIn()" href="#">Applied</a></li>
-                      
-                    </ul>
-                  
+                      <!-- <li><a *ngIf="authenticateservice.isUserLoggedIn()" href="#">Applied</a></li> -->
+                      <li><a *ngIf="authenticate.isUserLoggedIn()" [routerLink]="['/welcome']">Home</a></li>
+                      <li><a *ngIf="authenticate.isUserLoggedIn()" routerLink="/allExpenses">Expenses</a></li>
+                    </ul>                
                     <ul class="nav navbar-nav navbar-right">
-                      <li><a *ngIf="authenticateservice.isUserLoggedIn()" href="/home/{{username}}"><span class="glyphicon glyphicon-user"></span> Home</a></li>
-                      
+                      <!-- <li><a *ngIf="authenticateservice.isUserLoggedIn()" href="/home/{{username}}"><span class="glyphicon glyphicon-user"></span> Home</a></li> -->                    
                     </ul>
-                  </div>        
-            <ul class="navbar navbar-nav">
-                <li class="active"><a *ngIf="!authenticateservice.isUserLoggedIn()" routerLink="/login">Login</a></li>
-                <li><a *ngIf="!authenticateservice.isUserLoggedIn()" routerLink="/register">Register</a></li>
-                <li><a *ngIf="authenticateservice.isUserLoggedIn()" routerLink="/logout">Logout</a></li>
-            </ul>
-            
-        </div>
-        
+                </div> 
+                <div>    
+                    <ul class="navbar navbar-nav">
+                        <!-- <li class="active"><a *ngIf="!authenticateservice.isUserLoggedIn()" routerLink="/login">Login</a></li>
+                        <li><a *ngIf="!authenticateservice.isUserLoggedIn()" routerLink="/register">Register</a></li>
+                        <li><a *ngIf="authenticateservice.isUserLoggedIn()" routerLink="/logout">Logout</a></li> -->
+                        <li class="active"><a *ngIf="!authenticate.isUserLoggedIn()" routerLink="/login" >Login</a></li>
+                        <li><a *ngIf="!authenticate.isUserLoggedIn()" routerLink="/register">Register</a></li>
+                        <li><a *ngIf="authenticate.isUserLoggedIn()" routerLink="/logout">Logout</a></li>
+                    </ul> 
+                </div>            
+        </div>       
     </nav>
-</header> -->
+</header>
 
 <!-- <nav class="navbar navbar-inverse navbar-dark bg-dark">
     <div class="container-fluid">

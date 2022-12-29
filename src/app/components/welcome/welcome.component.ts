@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -10,7 +10,9 @@ export class WelcomeComponent implements OnInit {
 
   
   username:any = ''
-  constructor(private activateRoute: ActivatedRoute) { }
+  constructor(private router: Router,
+              private activateRoute: ActivatedRoute,
+              ) { }
 
   ngOnInit(): void {
     

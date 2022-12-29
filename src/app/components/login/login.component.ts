@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticateService } from 'src/app/services/authenticate.service';
 
 @Component({
   selector: 'app-login',
@@ -18,14 +19,15 @@ export class LoginComponent implements OnInit {
   testuser:string = "testuser"
   testpass:string = "123456"
   constructor(private router: Router,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              private authenticate:AuthenticateService) { }
 
   ngOnInit(): void {
   }
 
   authenticateUser(username:string,password:string) {
     
-    if(username === this.testuser && password === this.testpass){
+    if(this.authenticate.userAuthencation(username,password)){
       this.router.navigate(['welcome',username])
       this.message="Login works"
       this.invalidLogin = false
