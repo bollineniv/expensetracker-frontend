@@ -20,4 +20,8 @@ export class WelcomeComponent implements OnInit {
     
   }
 
+  addExpense(){
+    this.router.navigate(['addExpense'])
+  }
+
 }
