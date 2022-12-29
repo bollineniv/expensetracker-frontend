@@ -15,7 +15,7 @@ export class NavigationBarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.username = this.activateRoute.snapshot.params['username']
+    this.username = this.authenticate.getUsername()
     // this.username = this.activateRoute.snapshot.params['username']
     console.log("username: ",this.username)
     // const uname= this.activateRoute.paramMap['username']

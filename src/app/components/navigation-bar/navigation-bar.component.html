@@ -5,7 +5,7 @@
                 <div id="barnavinline">
                     <ul class="nav" id="ul_top_hypers">
                       <!-- <li><a *ngIf="authenticateservice.isUserLoggedIn()" href="#">Applied</a></li> -->
-                      <li><a *ngIf="authenticate.isUserLoggedIn()" [routerLink]="['/welcome']">Home</a></li>
+                      <li><a *ngIf="authenticate.isUserLoggedIn()" [routerLink]="['/welcome',username]">Home</a></li>
                       <li><a *ngIf="authenticate.isUserLoggedIn()" routerLink="/allExpenses">Expenses</a></li>
                     </ul>                
                     <ul class="nav navbar-nav navbar-right">

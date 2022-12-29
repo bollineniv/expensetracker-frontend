@@ -22,6 +22,13 @@ export class AuthenticateService {
     return !(user == null)
   }
 
+  getUsername(){
+    const sessionItem = sessionStorage.getItem("userAuthenticated")
+    if(sessionItem !=null){
+      return sessionItem
+    }
+    return "error"
+  }
   logout(){
     sessionStorage.removeItem("userAuthenticated")
   }

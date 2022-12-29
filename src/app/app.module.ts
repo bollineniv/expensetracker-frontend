@@ -17,11 +17,12 @@ import { RouteGuardService } from './services/route-guard.service';
 const routers: Routes = [
   {path:'login', component:LoginComponent},
   {path:'welcome/:username', component:WelcomeComponent, canActivate:[RouteGuardService]},
-  {path:'welcome', component:WelcomeComponent, canActivate:[RouteGuardService]},
+  // {path:'welcome', component:WelcomeComponent, canActivate:[RouteGuardService]},
   {path:'allExpenses', component:ListExpenseComponent, canActivate:[RouteGuardService]},
   {path:'addExpense', component:AddExpenseComponent, canActivate:[RouteGuardService]},
   {path:'editExpense/:id', component:AddExpenseComponent, canActivate:[RouteGuardService]},
-  {path:'deleteExpense/:id', redirectTo:'/allExpenses'},
+  // {path:'deleteExpense/:id', redirectTo:'/allExpenses'},
+  {path:'deleteExpense/:id', component:AddExpenseComponent},
   {path: 'logout', component:LogoutComponent, canActivate:[RouteGuardService]},
   {path:'*', redirectTo:'/login', pathMatch: 'full'}
 ]
