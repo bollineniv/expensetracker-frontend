@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { basename } from 'path';
+import { Category } from 'src/app/models/category';
 import { Expense } from 'src/app/models/expense';
 import { ExpenseService } from 'src/app/services/expense.service';
 
@@ -11,10 +12,12 @@ import { ExpenseService } from 'src/app/services/expense.service';
 export class ListExpenseComponent implements OnInit {
 
   allExpenses: Expense[] = []
-
+  public categoryEnum = Category
+  enumKeys=Object.keys(this.categoryEnum);
   filters ={
     keyword: '',
-    sortBy: 'Name'
+    sortBy: 'Name',
+    category:'Other'
   }
   constructor(private expenseService: ExpenseService,
               ) { }
@@ -38,6 +41,7 @@ export class ListExpenseComponent implements OnInit {
       // data => this.allExpenses = data
       data => this.allExpenses = this.filterExpenses(data)
     )
+    console.log("category: ",this.filters.category)
   }
 
   filterExpenses(allexpenses: Expense[]){
@@ -54,6 +58,12 @@ export class ListExpenseComponent implements OnInit {
         return a.expense.toLowerCase()<b.expense.toLowerCase()? -1:1
       }
     })
+  }
+
+  getExpenseByCategory(category:string){
+    this.expenseService.getExpenseByCategory(category).subscribe(
+      data=>this.allExpenses=data
+    )
   }
 
 }

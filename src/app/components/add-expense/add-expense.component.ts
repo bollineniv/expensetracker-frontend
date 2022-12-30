@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Category } from 'src/app/models/category';
 import { Expense } from 'src/app/models/expense';
 import { ExpenseService } from 'src/app/services/expense.service';
 
@@ -10,10 +11,14 @@ import { ExpenseService } from 'src/app/services/expense.service';
 })
 export class AddExpenseComponent implements OnInit {
 
+  public categoryEnum = Category
+  enumKeys=Object.keys(this.categoryEnum);
   expense: Expense = new Expense();
   constructor(private expenseservice: ExpenseService,
                 private router:Router,
-                private actvatedRoute: ActivatedRoute) { }
+                private actvatedRoute: ActivatedRoute) {
+          this.enumKeys=Object.keys(this.categoryEnum)
+                 }
 
   ngOnInit(): void {
     const isIdAvailable = this.actvatedRoute.snapshot.paramMap.has('id')
@@ -26,7 +31,9 @@ export class AddExpenseComponent implements OnInit {
   }
 
   saveExpense(){
-
+    if(this.expense.category==null){
+      this.expense.category="Other"
+    }
     this.expenseservice.saveExpense(this.expense).subscribe(
       data=>{
         console.log("response: ",data)

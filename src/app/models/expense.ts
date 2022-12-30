@@ -4,4 +4,5 @@ export class Expense {
     expense: string;
     description: string;
     amount: number;
+    category: string;
 }

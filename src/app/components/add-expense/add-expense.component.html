@@ -1,4 +1,6 @@
-<a routerLink="/allExpenses">All Expenses</a>
+<!-- <a routerLink="/allExpenses">All Expenses</a> -->
+<h4 *ngIf="!expense.id">Add Expense</h4>
+<h4 *ngIf="expense.id">Update Expense</h4>
 <form (ngSubmit)="saveExpense()">
     <div class="form-group">
         <label for="expense">Expense</label>
@@ -12,14 +14,22 @@
         <input type="text"  class="form-control" id="description"
             [(ngModel)]="expense.description" name="description">
     </div>
-    
+    <div class="form-group">
+        <label for="Category">Category</label>
+        <input type="text"  class="form-control" id="category"
+            [(ngModel)]="expense.category" name="category">
+    </div>
+    <!-- <select name="categoryfilter" [(ngModel)]="filters.category" (change)="getExpenseByCategory(filters.category)">
+        <option *ngFor="let cat of enumKeys" [value]="cat">{{cat}}</option>
+    </select> -->
     <div class="form-group">
         <label for="amount">Amount</label>
         <input type="text" class="form-control"  id="amount"
                 [(ngModel)]="expense.amount" name="amount">
     </div>
 
-    <button type="submit">Add Expense</button>
+    <button type="submit" *ngIf="!expense.id">Add Expense</button>
+    <button type="submit" *ngIf="expense.id">Update Expense</button>
     <button *ngIf="expense.id" (click)="deleteExpense(expense.id)">Delete</button>
 
     <button type="button" (click)="cancel()">Cancel</button>

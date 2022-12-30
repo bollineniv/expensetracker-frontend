@@ -46,4 +46,9 @@ export class ExpenseService {
     // )
     
   }
+
+  getExpenseByCategory(category:string): Observable<Expense[]>{
+    return this.httpClient.get<Expense[]>(`${this.getUrl}/expense/category?category=${category}`)
+              .pipe(map(response=>response))
+  }
 }

@@ -12,7 +12,9 @@
     <a routerLink="/editExpense/{{expense.id}}">Edit</a>
     <button (click)="deleteExpense(expense.id)">Delete</button>
 </div> -->
-
+<select name="categoryfilter" [(ngModel)]="filters.category" (change)="getExpenseByCategory(filters.category)">
+    <option *ngFor="let cat of enumKeys" [value]="cat">{{cat}}</option>
+</select>
 
 
 
@@ -21,6 +23,7 @@
       <tr>
         <th>Expense</th>
         <th>Description</th>
+        <th>Category</th>
         <th>Amount</th>
         <th>Edit</th>
         <th>Delete</th>
@@ -42,10 +45,13 @@
                 <p class="fw-bold mb-1">{{expense.description}}</p>
             </td>
             <td>
+                <p class="fw-bold mb-1">{{expense.category}}</p>
+            </td>
+            <td>
                 <p class="fw-bold mb-1">{{expense.amount |currency:'$'}}</p>
             </td>
             <td>
-                <a class="fw-bold mb-1" routerLink="/editExpense/{{expense.id}}">Edit</a>
+                <a class="fw-bold mb-1" routerLink="/editExpense/{{expense.id}}">Update</a>
             </td>
             <td>
             <button type="button"class="btn btn-sm btn-rounded btn btn-primary" 
