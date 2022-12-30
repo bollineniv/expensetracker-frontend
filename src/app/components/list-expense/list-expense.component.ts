@@ -19,6 +19,9 @@ export class ListExpenseComponent implements OnInit {
     sortBy: 'Name',
     category:'Other'
   }
+  tableSize:number=5
+  tableSizes:any=[5,10,15,20]
+  page:number=0
   constructor(private expenseService: ExpenseService,
               ) { }
 
@@ -66,4 +69,14 @@ export class ListExpenseComponent implements OnInit {
     )
   }
 
+  onPageChange(event:any){
+    this.page = event
+    this.listExpenses()
+  }
+
+  // onPageSizeChange(event:any){
+  //   this.tableSize = event
+  //   this.page=1
+  //   this.listExpenses()
+  // }
 }

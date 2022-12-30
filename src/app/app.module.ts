@@ -13,6 +13,7 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { FooterComponent } from './components/footer/footer.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RouteGuardService } from './services/route-guard.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const routers: Routes = [
   {path:'login', component:LoginComponent},
@@ -41,7 +42,8 @@ const routers: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routers)
+    RouterModule.forRoot(routers),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
