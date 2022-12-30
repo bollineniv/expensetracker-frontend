@@ -17,10 +17,11 @@ export class AddExpenseComponent implements OnInit {
   constructor(private expenseservice: ExpenseService,
                 private router:Router,
                 private actvatedRoute: ActivatedRoute) {
-          this.enumKeys=Object.keys(this.categoryEnum)
+          // this.enumKeys=Object.keys(this.categoryEnum)
                  }
 
   ngOnInit(): void {
+    this.expense.category='Other'
     const isIdAvailable = this.actvatedRoute.snapshot.paramMap.has('id')
     if(isIdAvailable){
       const id = this.actvatedRoute.snapshot.paramMap.get('id')
@@ -31,9 +32,9 @@ export class AddExpenseComponent implements OnInit {
   }
 
   saveExpense(){
-    if(this.expense.category==null){
-      this.expense.category="Other"
-    }
+    // if(this.expense.category==null){
+    //   this.expense.category="Other"
+    // }
     this.expenseservice.saveExpense(this.expense).subscribe(
       data=>{
         console.log("response: ",data)

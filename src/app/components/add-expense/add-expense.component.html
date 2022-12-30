@@ -15,13 +15,14 @@
             [(ngModel)]="expense.description" name="description">
     </div>
     <div class="form-group">
-        <label for="Category">Category</label>
-        <input type="text"  class="form-control" id="category"
-            [(ngModel)]="expense.category" name="category">
+        <label for="Category" >Category</label>
+        <!-- <input type="text"  class="form-control" id="category"
+            [(ngModel)]="expense.category" name="category"> -->
+    
+        <select name="categoryfilter" [(ngModel)]="expense.category" class="custom-select">
+            <option *ngFor="let cat of enumKeys" [value]="cat" >{{cat}}</option>
+        </select>
     </div>
-    <!-- <select name="categoryfilter" [(ngModel)]="filters.category" (change)="getExpenseByCategory(filters.category)">
-        <option *ngFor="let cat of enumKeys" [value]="cat">{{cat}}</option>
-    </select> -->
     <div class="form-group">
         <label for="amount">Amount</label>
         <input type="text" class="form-control"  id="amount"
