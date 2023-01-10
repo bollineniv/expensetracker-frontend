@@ -11,6 +11,15 @@ export class RouteGuardService implements CanActivate {
   constructor(private authencate: AuthenticateService,
               private router:Router) { }
               
+  // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
+  //   if(this.authencate.isUserLoggedIn()){
+  //     return true
+  //   }
+  //   this.router.navigate(['login'])
+  //   return false
+    
+  // }
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
     if(this.authencate.isUserLoggedIn()){
       return true

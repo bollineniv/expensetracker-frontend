@@ -1,7 +1,9 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { basename } from 'path';
 import { Category } from 'src/app/models/category';
 import { Expense } from 'src/app/models/expense';
+import { AuthenticateService } from 'src/app/services/authenticate.service';
 import { ExpenseService } from 'src/app/services/expense.service';
 
 @Component({
@@ -23,6 +25,7 @@ export class ListExpenseComponent implements OnInit {
   tableSizes:any=[5,10,15,20]
   page:number=0
   constructor(private expenseService: ExpenseService,
+              private authservice: AuthenticateService
               ) { }
 
   ngOnInit(): void {
@@ -40,6 +43,12 @@ export class ListExpenseComponent implements OnInit {
   }
 
   listExpenses(){
+    // let basicAuthHeader = this.authservice.createBasicAuthHeader();
+    // let httpHeader = new HttpHeaders(
+    //   {
+    //     Autherization: basicAuthHeader
+    //   }
+    // )
     this.expenseService.getAllExpense().subscribe(
       // data => this.allExpenses = data
       data => this.allExpenses = this.filterExpenses(data)

@@ -1,0 +1,77 @@
+
+<div class="wrapper fadeInDown">
+
+    <!-- <div id="logincontent" *ngIf="!isUserRegister">
+        <form (ngSubmit)="registerUser()">
+            <input type="text" id="name" class="fadein second" name="name" placeholder="name" [(ngModel)]="user.name">
+            <input type="text" id="username" class="fadein second" name="username" placeholder="username" [(ngModel)]="user.email">
+            <input type="text" id="email" class="fadein second" name="email" placeholder="email" [(ngModel)]="user.email">
+            <input type="password" id="password" class="fadein second" name="password" placeholder="password" [(ngModel)]="user.password">
+            <input type="text" id="age" class="fadein second" name="age" placeholder="age" [(ngModel)]="user.age">
+            
+            <input type="submit" class="fadein fourth" value="Register" >
+        </form>
+    </div> -->
+    
+    <!-- <div>
+        password: <input type="password" id="pswd" name="pswd" [(ngModel)]="password">
+    </div>
+
+    <div>
+        <button id="loginbtn" name="login" (click)=handleLogin()>Login</button>
+    </div> -->
+    <!-- <div><h2 class="alert alert-warning" *ngIf='isUserRegister' class="registerMessage">{{registerMessage}}</h2></div> -->
+     
+</div>
+
+<div ng-app="sample" *ngIf="!isUserRegister">
+    <form class="form-horizontal" name="registerForm" (ngSubmit)="registerUser()">
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Password.$invalid, 'has-success': registerForm.Password.$valid}">
+            <label class="col-md-3 control-label" for="name">Name</label>
+            <div class="col-md-4">
+                <input id="name" type="text" class="form-control" name="name" required [(ngModel)]="user.name" />
+                <!-- <input type="text" class="form-control" id="expense" required [(ngModel)]="expense.expense" name="expense"> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="name">Username</label>
+            <div class="col-md-4">
+                <input id="username" type="username" class="form-control" name="username" required [(ngModel)]="user.username" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="Email">Email</label>
+            <div class="col-md-4">
+                <input id="email" type="email" class="form-control" name="email" required [(ngModel)]="user.email" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="Password">Password</label>
+            <div class="col-md-4">
+                <input id="Password" type="password" class="form-control" formcontrolname="password" 
+                                    name="Password" required minlength="6" [(ngModel)]="user.password" 
+                                    (change)="onPasswordChange()"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="ConfirmPassword">Confirm Password</label>
+            <div class="col-md-4">
+                <input id="ConfirmPassword" type="password" class="form-control" formcontrolname="confirmpassword" 
+                                    name="ConfirmPassword" [(ngModel)]="confirmPassword" required ="registerForm.Password" 
+                                    (change)="onPasswordChange()"/>
+                <span class="alert alert-warning" *ngIf="mismatch">Password do not match</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="age">Age</label>
+            <div class="col-md-4">
+                <input id="age" type="age" class="form-control" name="age" [(ngModel)]="user.age" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" class="btn btn-default" value="Sign Up" ng-disabled="registerForm.$invalid"/>
+            </div>
+        </div>
+    </form>
+</div>

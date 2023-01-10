@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ListExpenseComponent } from './components/list-expense/list-expense.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { RouterModule, Routes } from '@angular/router';
 import { AddExpenseComponent } from './components/add-expense/add-expense.component';
 import { FormsModule } from '@angular/forms';
@@ -14,9 +14,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RouteGuardService } from './services/route-guard.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { RegisterComponent } from './components/register/register.component';
+import { HttpIntercepterBasicAuthService } from './services/http-intercepter-basic-auth.service';
 
 const routers: Routes = [
   {path:'login', component:LoginComponent},
+  {path:'register', component:RegisterComponent},
   {path:'welcome/:username', component:WelcomeComponent, canActivate:[RouteGuardService]},
   // {path:'welcome', component:WelcomeComponent, canActivate:[RouteGuardService]},
   {path:'allExpenses', component:ListExpenseComponent, canActivate:[RouteGuardService]},
@@ -36,7 +39,8 @@ const routers: Routes = [
     NavigationBarComponent,
     WelcomeComponent,
     FooterComponent,
-    LogoutComponent
+    LogoutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,9 @@ const routers: Routes = [
     RouterModule.forRoot(routers),
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

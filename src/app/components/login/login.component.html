@@ -25,9 +25,10 @@
 
     <div id="logincontent">
         <form>
-            <input type="text" id="username" class="fadein second" name="username" placeholder="username" [(ngModel)]="login.username">
-            <input type="password" id="password" class="fadein second" name="password" placeholder="password" [(ngModel)]="login.password">
-            <input type="submit" class="fadein fourth" value="Log In" (click)="authenticateUser(login.username,login.password)">
+            <input type="text" id="username" class="fadein second" name="username" placeholder="username" [(ngModel)]="authentication.email">
+            <input type="password" id="password" class="fadein second" name="password" placeholder="password" [(ngModel)]="authentication.password">
+            <!-- <input type="submit" class="fadein fourth" value="Log In" (click)="authenticateUser(authentication.email,authentication.password)"> -->
+            <input type="submit" class="fadein fourth" value="Log In" (click)="authenticateUserV2()">
         </form>
 
         <!-- username: <input type="text" id="uname" name="uname" [(ngModel)]="username"> -->
