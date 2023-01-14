@@ -8,7 +8,7 @@ import { Users } from '../models/users';
 export class UserService {
 
   // private getUrl:string = "http://localhost:8080/api/v1"
-  private getUrl:string = "http://valdbinstance.chqc9b8iqink.us-east-1.rds.amazonaws.com/api/v1"
+  private getUrl:string = "http://Trackerapi-env.eba-jqcpttwg.us-east-1.elasticbeanstalk.com/api/v1"
   constructor(private httpClient:HttpClient) { }
 
   registerUser(user:Users){

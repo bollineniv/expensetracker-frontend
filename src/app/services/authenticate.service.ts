@@ -13,7 +13,8 @@ export class AuthenticateService {
   testpass:string = "123456"
 
   // private getUrl:string = "http://localhost:8080/api/v1"
-  private getUrl:string = "http://valdbinstance.chqc9b8iqink.us-east-1.rds.amazonaws.com/api/v1"
+  private getUrl:string = "http://Trackerapi-env.eba-jqcpttwg.us-east-1.elasticbeanstalk.com/api/v1"
+  
   // authentication:{
   //   username:string,
   //   password:string
