@@ -39,7 +39,7 @@ export class AuthenticateService {
     // console.log("email: ",authentication.email)
     let header = this.createBasicAuthHeader()
     console.log("header: ",header)
-    return this.httpClient.post<AuthenticateUser>(`${this.getUrl}/login`,authentication,{headers:{
+    return this.httpClient.post<AuthenticateUser>(`${this.getUrl}/loginV2`,authentication,{headers:{
       authorization: this.createBasicAuthHeader()
     }})
     .pipe(
