@@ -16,7 +16,12 @@ import { RouteGuardService } from './services/route-guard.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpIntercepterBasicAuthService } from './services/http-intercepter-basic-auth.service';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+// import { IgxDatePickerModule } from "@infragistics/igniteui-angular";
+import { HammerModule } from '@angular/platform-browser';
 const routers: Routes = [
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
@@ -46,8 +51,12 @@ const routers: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
     RouterModule.forRoot(routers),
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true}

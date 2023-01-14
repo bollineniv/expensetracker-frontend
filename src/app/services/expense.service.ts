@@ -8,15 +8,15 @@ import { Expense } from '../models/expense';
 })
 export class ExpenseService {
 
-  private getUrl:string = "http://localhost:8080/api/v1"
-
+  // private getUrl:string = "http://localhost:8080/api/v1"
+  private getUrl:string = "http://valdbinstance.chqc9b8iqink.us-east-1.rds.amazonaws.com/api/v1"
 
 
   constructor( private httpClient: HttpClient) { }
 
   getAllExpense(): Observable<Expense[]>{
 
-    return this.httpClient.get<Expense[]>(this.getUrl+"/getAllExpense").pipe(
+    return this.httpClient.get<Expense[]>(this.getUrl+"/getAllExpenseV2").pipe(
       map(response =>response)
     )
     

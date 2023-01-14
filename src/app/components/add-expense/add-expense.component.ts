@@ -35,6 +35,7 @@ export class AddExpenseComponent implements OnInit {
     // if(this.expense.category==null){
     //   this.expense.category="Other"
     // }
+    console.log("expense: ",this.expense)
     this.expenseservice.saveExpense(this.expense).subscribe(
       data=>{
         console.log("response: ",data)
@@ -56,4 +57,12 @@ export class AddExpenseComponent implements OnInit {
   cancel(){
     this.router.navigate(['allExpenses'])
   }
+
+  formatDate(e: any) {
+    var d = new Date(e.target.value)
+    var convertDate = d.toISOString().substring(0, 10) + d.toISOString().substring(10,);
+    // this.expense.date?.setValue(convertDate, { onlyself: true });
+    console.log("date:: ",convertDate)
+  }
+
 }
